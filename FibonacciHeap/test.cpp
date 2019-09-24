@@ -2,6 +2,7 @@
 using namespace std;
 int main(){
 	FibonacciHeap* heap = new FibonacciHeap();
+	FibonacciHeap* heap2 = new FibonacciHeap();
 	heap->insertar(124);
 	int aux=heap->getMin();
 
