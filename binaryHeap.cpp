@@ -1,6 +1,7 @@
 //
 //
 #include <iostream>
+#include <cmath>
 #include "binaryHeap.h"
 
 using namespace std;
@@ -8,28 +9,42 @@ using namespace std;
 //contructor
 BinaryHeap::BinaryHeap(){
 	//v at 0 is not used
-	v.push_back((int)NULL);
+	heap.push_back((int)NULL);
 }
 
 int BinaryHeap::parent(int k){
-	return int((k-1)/2);
+	return int(ceil((k-1)/2.0));
 }
 
 void BinaryHeap::insert(int k){
-	v.push_back(k);
-	int n = v.size();
-	while(n != v[1] && v[n] > parent(v[n])){
-		cout<<"in while...\n";
-		swap(v[n], v[parent(n)]);
-		n = parent(n);
-		//revisar diapos con formula
+	heap.push_back(k);
+	int v = heap.size()-1;
+	while(heap[v] != heap[1]){
+		int u = parent(v);
+		if(heap[v] > heap[u]) break;
+		swap(heap[v], heap[u]);
+		v = u;
 	}
 
 }
 
+void BinaryHeap::showHeap(){
+	for (int i = 1; i < heap.size(); ++i){
+		cout << heap[i] << " ";
+	}
+	cout << endl;
+}
+
+int BinaryHeap::getMin(){
+	return heap[1];
+}
+
 bool BinaryHeap::search(int k){
-	//do something
-	return true;
+	for (int i = 1; i < heap.size(); ++i)
+		if(k == heap[i])
+			return true;
+	return false;
+	
 }
 
 //recibe un binaryheap y lo une al del objeto que lo llama.
@@ -38,6 +53,6 @@ void BinaryHeap::join(BinaryHeap bh){
 }
 
 BinaryHeap::~BinaryHeap(){
-	v.clear();
-	v.shrink_to_fit();
+	heap.clear();
+	heap.shrink_to_fit();
 }

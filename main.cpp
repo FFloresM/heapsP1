@@ -7,10 +7,14 @@ int main(int argc, char const *argv[])
 {
 	/* code */
 	BinaryHeap bh;
-	bh.insert(4);
-	bh.insert(10);
-	bh.insert(3);
-	cout << "funciona" << endl;
+	vector<int> v = {4,10,3,1,2};
+
+	for (int i = 0; i < v.size(); ++i){
+		bh.insert(v[i]);
+		bh.showHeap();
+	}
+	//cout << "min : " << bh.getMin() << endl;
+	
 
 	return 0;
 }

@@ -10,12 +10,14 @@
 class BinaryHeap
 {
 private:
-	std::vector<int> v;
+	std::vector<int> heap;
 	int parent(int k);
 
 public:
 	BinaryHeap();
 	~BinaryHeap();
+	void showHeap();
+	int getMin();
 	void insert(int k);
 	bool search(int k);
 	void join(BinaryHeap bh); //check this params
