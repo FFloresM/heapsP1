@@ -1,0 +1,7 @@
+FILE=main
+if [ -f "$FILE" ]; then
+    rm main *.o
+fi
+g++ -c *.cpp -lm
+g++ -g *.o -o main
+./main
