@@ -14,16 +14,15 @@ node* head;
 node* minimo;
 
 node* CreateNode(int);
-public: 
-BinomialHeap();
-~BinomialHeap();
-void Crear_vacio();
-void insert(int );
-bool search();
-int findMinimo();
-void borrar_minimo();
-void show();
 void link_tree(node* , node*);
 node* merge_tree(node* , node*);
 node* union_tree(node* , node* );
+public: 
+
+BinomialHeap();
+~BinomialHeap();
+void insert(int );
+bool search(int);
+void join(BinomialHeap*);
+node* B_head();
 };
