@@ -119,32 +119,10 @@ if( Heap_list != NULL){
     }
     return Heap_list;
 }
-void BinomialHeap:: show(){
-node* currPtr = head;
-		while (currPtr != nullptr) {
-			cout<<"B"<<currPtr->grade<<endl;
-			cout<<"There are "<<pow(2, currPtr->grade)<<" nodes in this tree"<<endl;
-			cout<<"The level order traversal is"<<endl;
-			queue<node*> q;
-			q.push(currPtr);
-			while (!q.empty()) {
-				node* p = q.front();
-				q.pop();
-				cout<<p->key<<" ";
-
-				if (p->child != nullptr) {
-					node* tempPtr = p->child;
-					while (tempPtr != nullptr) {
-						q.push(tempPtr);
-						tempPtr = tempPtr->next;
-					}
-				} 
-			}
-			currPtr = currPtr->next;
-			cout<<endl<<endl;
-		}
-	}
-
+void BinomialHeap:: join(BinomialHeap* h1){
+ union_tree(head,h1->head);  
+ head=NULL;
+}
 
 
 bool BinomialHeap :: search(int x){
