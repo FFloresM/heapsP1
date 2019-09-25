@@ -17,13 +17,11 @@ node* CreateNode(int);
 public: 
 BinomialHeap();
 ~BinomialHeap();
-void Crear_vacio();
 void insert(int );
-bool search();
-int findMinimo();
-void borrar_minimo();
+bool search(int);
 void show();
 void link_tree(node* , node*);
 node* merge_tree(node* , node*);
 node* union_tree(node* , node* );
+node* B_head();
 };

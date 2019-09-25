@@ -42,11 +42,11 @@ void BinomialHeap:: link_tree(node *tree_1 , node* tree_2){
 // fusiona dos heaps  ordenando por grados 
 
 node * BinomialHeap:: merge_tree(node* Heap_1 , node* Heap_2 ){
-    cout<< "dentro del merge"<<endl;
     node* head;
     node* It_heap1=Heap_1;
     node* It_heap2=Heap_2;
     node* tail;
+
     if( It_heap1->grade <= It_heap2 -> grade){
         head= It_heap1;
         It_heap1=Heap_1->next;
@@ -73,7 +73,10 @@ node * BinomialHeap:: merge_tree(node* Heap_1 , node* Heap_2 ){
 		tail = tail->next;
 	}
 
-	tail->next = ( It_heap1 != NULL ) ? It_heap1 : It_heap2;
+    if( It_heap1 != NULL ){
+        tail->next= It_heap1 ;
+        }
+    else tail->next = It_heap2;
 
 	return head;
     }
@@ -82,9 +85,7 @@ node * BinomialHeap:: merge_tree(node* Heap_1 , node* Heap_2 ){
 node* BinomialHeap:: union_tree(node* Heap_1 , node* Heap_2){
 
 node* Heap_list= merge_tree(Heap_1, Heap_2);
-cout<< "antes del merge"<<endl;
 if( Heap_list != NULL){
-
 
     node* aux = Heap_list;
     node* next_aux =aux->next;
@@ -98,7 +99,6 @@ if( Heap_list != NULL){
             aux=next_aux;
         }else{// caso 3
             if(aux->key<=next_aux->key){
-                cout<< "caso 1";
                 aux->next=next_aux->next;
                 link_tree(next_aux,aux);
             
@@ -147,13 +147,32 @@ node* currPtr = head;
 
 
 
-bool BinomialHeap :: search(){
-
+bool BinomialHeap :: search(int x){
+node* currPtr = head;
+		while (currPtr != nullptr) {
+			queue<node*> q;
+			q.push(currPtr);
+			while (!q.empty()){
+				node* p = q.front();
+				q.pop();
+                if(p->key==x){
+    
+                    return true;
+                }
+				if (p->child != nullptr) {
+					node* tempPtr = p->child;
+					while (tempPtr != nullptr) {
+						q.push(tempPtr);
+						tempPtr = tempPtr->next;
+					}
+				} 
+			}
+			currPtr = currPtr->next;
+		}
+        
+        return false;
 }
-int BinomialHeap:: findMinimo(){
-  return minimo->key;
+node * BinomialHeap::B_head(){
+    return head;
 }
 
-void BinomialHeap:: borrar_minimo(){
-
-}
