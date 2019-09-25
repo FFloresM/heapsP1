@@ -28,11 +28,6 @@ Nodo* FibonacciHeap::_union(Nodo* a, Nodo* b){
 	//cambio de puntero al minimo
 	if(a->getValor() > b->getValor()){
 		a=b;
-		/*
-		Nodo* aux=a;
-		a=b;
-		b=aux;
-		*/
 	}
 	return a;
 }
@@ -52,4 +47,23 @@ Nodo* FibonacciHeap::_buscar(Nodo* min_heap, int b){
 }
 int FibonacciHeap::getMin(){
 	return min_heap->getValor();
+}
+
+void FibonacciHeap::join(FibonacciHeap *n_heap){
+	min_heap = _union(min_heap,n_heap->min_heap); 
+	/*
+	Nodo* aux = n_heap->min_heap;
+
+	do{
+		min_heap = _union(min_heap,aux);
+		if(aux == n_heap->min_heap){
+			cout<<aux->getValor()<<endl;
+			cout<<aux->getSig()->getValor()<<endl;
+			cout<<aux->getSig()->getSig()->getValor()<<endl;
+			cout<<aux->getSig()->getSig()->getSig()->getValor()<<endl;
+		}
+		aux = aux->getSig();
+		//cout<<aux->getValor()<<endl;
+	}while(aux!=n_heap->min_heap);
+	*/
 }
