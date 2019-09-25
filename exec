@@ -1,7 +1,7 @@
-FILE=main
+FILE=main.out
 if [ -f "$FILE" ]; then
-    rm main *.o
+    rm main.out *.o
 fi
-g++ -c *.cpp -lm
-g++ -g *.o -o main
-./main
+g++ -c binaryHeap.cpp main.cpp -lm
+g++ -g *.o -o main.out
+./main.out

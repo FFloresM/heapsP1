@@ -61,7 +61,6 @@ void FibonacciHeap::join(FibonacciHeap *n_heap){
 			cout<<aux->getSig()->getValor()<<endl;
 			cout<<aux->getSig()->getSig()->getValor()<<endl;
 			cout<<aux->getSig()->getSig()->getSig()->getValor()<<endl;
-
 		}
 		aux = aux->getSig();
 		//cout<<aux->getValor()<<endl;
