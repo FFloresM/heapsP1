@@ -4,6 +4,8 @@ C++ implementation of
 * BinomialHeap
 * FibonacciHeap
 
+Ir al directorio Test y ejecutar:
+
 Compiling
 ```console
 g++ -c *.cpp
