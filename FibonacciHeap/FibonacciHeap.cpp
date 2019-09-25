@@ -49,10 +49,22 @@ int FibonacciHeap::getMin(){
 	return min_heap->getValor();
 }
 
-void FibonacciHeap::join(FibonacciHeap& heap){
-	Nodo* aux = heap.min_heap;
+void FibonacciHeap::join(FibonacciHeap *n_heap){
+	min_heap = _union(min_heap,n_heap->min_heap); 
+	/*
+	Nodo* aux = n_heap->min_heap;
+
 	do{
-		_union(min_heap,aux);
+		min_heap = _union(min_heap,aux);
+		if(aux == n_heap->min_heap){
+			cout<<aux->getValor()<<endl;
+			cout<<aux->getSig()->getValor()<<endl;
+			cout<<aux->getSig()->getSig()->getValor()<<endl;
+			cout<<aux->getSig()->getSig()->getSig()->getValor()<<endl;
+
+		}
 		aux = aux->getSig();
-	}while(aux!=heap.min_heap);
+		//cout<<aux->getValor()<<endl;
+	}while(aux!=n_heap->min_heap);
+	*/
 }

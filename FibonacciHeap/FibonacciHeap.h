@@ -12,7 +12,7 @@ class FibonacciHeap{
 		void insertar(int v);
 		//pedir la estructura completa
 		//o pedir solo el min_heap de esta?
-		void join(FibonacciHeap& heap);
+		void join(FibonacciHeap *heap);
 		int getMin();
 		Nodo* buscar(int b);
 	private:
