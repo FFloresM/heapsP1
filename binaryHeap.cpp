@@ -25,7 +25,6 @@ void BinaryHeap::insert(int k){
 		swap(heap[v], heap[u]);
 		v = u;
 	}
-
 }
 
 void BinaryHeap::showHeap(){
@@ -49,7 +48,13 @@ bool BinaryHeap::search(int k){
 
 //recibe un binaryheap y lo une al del objeto que lo llama.
 void BinaryHeap::join(BinaryHeap bh){
+	vector<int> tmp = bh.getHeap();
+	for (int i = 1; i < tmp.size() ; ++i)
+		insert(tmp[i]);
+}
 
+vector<int> BinaryHeap::getHeap(){
+	return heap;
 }
 
 BinaryHeap::~BinaryHeap(){
