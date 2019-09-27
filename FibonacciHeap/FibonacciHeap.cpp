@@ -4,7 +4,7 @@ FibonacciHeap::FibonacciHeap(){
 	min_heap = NULL;
 }
 FibonacciHeap::~FibonacciHeap(){
-
+	
 }
 void FibonacciHeap::insertar(int v){
 	Nodo* n = new Nodo(v);
