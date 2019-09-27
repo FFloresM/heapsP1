@@ -4,7 +4,7 @@ FibonacciHeap::FibonacciHeap(){
 	min_heap = NULL;
 }
 FibonacciHeap::~FibonacciHeap(){
-
+	_eliminar(min_heap);
 }
 void FibonacciHeap::insertar(int v){
 	Nodo* n = new Nodo(v);
@@ -66,4 +66,15 @@ void FibonacciHeap::join(FibonacciHeap *n_heap){
 		//cout<<aux->getValor()<<endl;
 	}while(aux!=n_heap->min_heap);
 	*/
+}
+
+void FibonacciHeap::_eliminar(Nodo *n){
+	//lo mismo que buscar
+	Nodo *aux = n;
+	do{
+		Nodo *aux2 = aux;
+		aux = aux->getSig();
+		_eliminar(aux2->getHijo());
+		delete aux;
+	}while(aux!=n);
 }
