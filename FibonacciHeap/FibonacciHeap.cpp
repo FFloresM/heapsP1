@@ -32,7 +32,7 @@ Nodo* FibonacciHeap::_union(Nodo* a, Nodo* b){
 	return a;
 }
 Nodo* FibonacciHeap::buscar(int b){
-	_buscar(min_heap, b);
+	return _buscar(min_heap, b);
 }
 Nodo* FibonacciHeap::_buscar(Nodo* min_heap, int b){
 	Nodo *n = min_heap;

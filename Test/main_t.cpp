@@ -3,13 +3,12 @@
 #include "../BinaryHeap/binaryHeap.h"
 #include <iostream>
 #include <vector>
+#include <random>
 
 #define MIN 1
 #define MAX 10000000
 
 using namespace std;
-
-
 
 vector<int> rdm(int CANTIDAD){
 	vector<int> v;
@@ -25,11 +24,11 @@ vector<int> rdm(int CANTIDAD){
 int main(int argc, char const *argv[])
 {
 	BinaryHeap bh;
-	BinomialHeap BH;
-	FibonacciHeap FH;
+	BinomialHeap* BH = new BinomialHeap();
+	FibonacciHeap* FH = new FibonacciHeap();
 
 	
-	for(int k=100; k<100000000; k*=10){
+	for(int k=100; k<=MAX; k*=10){
 
 		vector<int> data = rdm(k);
 
@@ -45,7 +44,7 @@ int main(int argc, char const *argv[])
 		auto start_Bi = chrono::steady_clock::now();
 
 		for(int i=0; i<data.size();i++)
-			BH.insert(data[i]);
+			BH->insert(data[i]);
 		
 		auto end_Bi = chrono::steady_clock::now();
 	
@@ -53,7 +52,7 @@ int main(int argc, char const *argv[])
 		auto start_Fi = chrono::steady_clock::now();
 
 		for(int i=0; i<data.size();i++)
-			FH.insertar(data[i]);
+			FH->insertar(data[i]);
 		
 		auto end_Fi = chrono::steady_clock::now();
 	
