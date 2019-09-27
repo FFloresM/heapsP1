@@ -20,7 +20,7 @@ node* union_tree(node* , node* );
 public: 
 
 BinomialHeap();
-~BinomialHeap();
+//~BinomialHeap();
 void insert(int );
 bool search(int);
 void join(BinomialHeap*);
